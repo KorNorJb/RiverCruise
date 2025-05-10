@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Речные круизы по Центральной России – лучшие маршруты, комфортабельные лайнеры и незабываемые впечатления!">
+    <meta name="keywords" content="речные круизы, круизы по России, отдых на воде, туризм">
+    <meta name="author" content="Речные круизы по Центральной России">
+    <meta property="og:title" content="Речные круизы по Центральной России">
+    <meta property="og:description" content="Лучшие маршруты, комфортабельные лайнеры и незабываемые впечатления!">
+    <meta property="og:image" content="path/to/hero-bg.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://yourwebsite.com">
+    <title>Речные круизы по Центральной России</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Poppins:wght@300;600&display=swap" rel="stylesheet">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+</head>
+<body class="page" itemscope itemtype="https://schema.org/TravelAgency">
+    <!-- Шапка -->
+    <header class="header">
+        <div class="header__logo">
+            <a href="/" aria-label="На главную страницу">
+                <img src="logo.png" alt="Логотип Речные круизы" class="header__logo-img" />
+            </a>
+        </div>
+        <nav class="header__nav" aria-label="Основная навигация">
+            <ul class="header__nav-list">
+                <li class="header__nav-item"><a href="#about" class="header__nav-link">О круизах</a></li>
+                <li class="header__nav-item"><a href="#routes" class="header__nav-link">Маршруты</a></li>
+                <li class="header__nav-item"><a href="#fleet" class="header__nav-link">Наш флот</a></li>
+                <li class="header__nav-item"><a href="#reviews" class="header__nav-link">Отзывы</a></li>
+                <li class="header__nav-item"><a href="#booking" class="header__nav-link">Бронирование</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Геройский блок -->
+    <main class="content">
+        <section class="hero" aria-labelledby="hero-title">
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
+                <h1 class="hero__title" id="hero-title">Речные круизы России</h1>
+                <p class="hero__subtitle">Гармония природы и комфорта</p>
+                <p class="hero__description">Путешествуйте по живописным рекам России, наслаждайтесь красотой природы и уютом наших лайнеров.</p>
+                <a href="#routes" class="hero__button" role="button">Узнать больше</a>
+            </div>
+        </section>
+
+
+        <!-- Секция с видео и галереей -->
+        <section class="discover" id="about" aria-labelledby="discover-title">
+            <div class="discover__content">
+                <h2 class="discover__title" id="discover-title">Откройте мир речных круизов</h2>
+                <a href="https://www.youtube.com/watch?v=example" class="discover__video-button" target="_blank" rel="noopener noreferrer">Смотреть видео</a>
+                <p class="discover__description">Погрузитесь в атмосферу уюта и природы с нашими круизами.</p>
+            </div>
+            <div class="discover__gallery" role="gallery">
+                <figure>
+                    <img src="'img/sundeck.jpg" alt="Палуба лайнера на закате" class="discover__gallery-image" />
+                    <figcaption>Палуба на закате</figcaption>
+                </figure>
+                <figure>
+                    <img src="'img/deckview.jpg" alt="Вид на реку с борта" class="discover__gallery-image" />
+                    <figcaption>Вид на реку</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/cabin.jpg" alt="Уютная каюта" class="discover__gallery-image" />
+                    <figcaption>Уютная каюта</figcaption>
+                </figure>
+                <figure>
+                    <img src="img/excurs.jpgчпр27г" alt="Экскурсия на берегу" class="discover__gallery-image" />
+                    <figcaption>Экскурсия</figcaption>
+                </figure>
+            </div>
+        </section>
+
+        <!-- Популярные маршруты -->
+        <section class="routes" id="routes" aria-labelledby="routes-title">
+            <h2 class="routes__title" id="routes-title">Популярные маршруты</h2>
+            <div class="routes__list">
+                <article class="route-card" itemscope itemtype="https://schema.org/Trip">
+                    <img src="img/moscow-spb.jpg" alt="Маршрут Москва – Санкт-Петербург" class="route-card__image" />
+                    <div class="route-card__overlay"></div>
+                    <div class="route-card__content">
+                        <h3 class="route-card__title" itemprop="name">Москва – Санкт-Петербург</h3>
+                        <p class="route-card__description" itemprop="description">7 дней | от 45 000 ₽</p>
+                    </div>
+                </article>
+                <article class="route-card" itemscope itemtype="https://schema.org/Trip">
+                    <img src="img/moscow-kazan.jpg" alt="Маршрут Москва – Казань" class="route-card__image" />
+                    <div class="route-card__overlay"></div>
+                    <div class="route-card__content">
+                        <h3 class="route-card__title" itemprop="name">Москва – Казань</h3>
+                        <p class="route-card__description" itemprop="description">5 дней | от 35 000 ₽</p>
+                    </div>
+                </article>
+                <article class="route-card" itemscope itemtype="https://schema.org/Trip">
+                    <img src="img/yaroslavl-kostroma.jpg" alt="Маршрут Ярославль – Кострома" class="route-card__image" />
+                    <div class="route-card__overlay"></div>
+                    <div class="route-card__content">
+                        <h3 class="route-card__title" itemprop="name">Ярославль – Кострома</h3>
+                        <p class="route-card__description" itemprop="description">3 дня | от 20 000 ₽</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+
+        <!-- Наш флот -->
+        <section class="fleet" id="fleet" aria-labelledby="fleet-title">
+            <h2 class="fleet__title" id="fleet-title">Наш флот</h2>
+            <div class="fleet__list">
+                <article class="fleet-card">
+                    <img src="img/ship1.jpg" alt="Лайнер Волга" class="fleet-card__image" />
+                    <div class="fleet-card__overlay"></div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Лайнер "Волга"</h3>
+                        <p class="fleet-card__description">Вместимость: 200 человек | Каюты: 80</p>
+                    </div>
+                </article>
+                <article class="fleet-card">
+                    <img src="img/ship2.jpg" alt="Лайнер Нева" class="fleet-card__image" />
+                    <div class="fleet-card__overlay"></div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Лайнер "Нева"</h3>
+                        <p class="fleet-card__description">Вместимость: 150 человек | Каюты: 60</p>
+                    </div>
+                </article>
+                <article class="fleet-card">
+                    <img src="img/ship3.jpg" alt="Лайнер Ока" class="fleet-card__image" />
+                    <div class="fleet-card__overlay"></div>
+                    <div class="fleet-card__content">
+                        <h3 class="fleet-card__title">Лайнер "Ока"</h3>
+                        <p class="fleet-card__description">Вместимость: 120 человек | Каюты: 50</p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Отзывы -->
+        <section class="reviews" id="reviews" aria-labelledby="reviews-title">
+            <h2 class="reviews__title" id="reviews-title">Отзывы наших клиентов</h2>
+            <div class="reviews__list">
+                <article class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div class="review-card__content">
+                        <div class="review-card__avatar">А</div>
+                        <div class="review-card__rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <span itemprop="ratingValue">5</span>★★★★★
+                        </div>
+                        <p class="review-card__text" itemprop="reviewBody">"Незабываемое путешествие! Лайнер комфортный, еда вкусная, а виды просто потрясающие!"</p>
+                        <p class="review-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">Анна, Москва</span>
+                        </p>
+                    </div>
+                </article>
+                <article class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div class="review-card__content">
+                        <div class="review-card__avatar">И</div>
+                        <div class="review-card__rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <span itemprop="ratingValue">4</span>★★★★☆
+                        </div>
+                        <p class="review-card__text" itemprop="reviewBody">"Отличный способ отдохнуть с семьей. Дети в восторге от экскурсий и анимации на борту."</p>
+                        <p class="review-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">Игорь, Санкт-Петербург</span>
+                        </p>
+                    </div>
+                </article>
+                <article class="review-card" itemscope itemtype="https://schema.org/Review">
+                    <div class="review-card__content">
+                        <div class="review-card__avatar">Е</div>
+                        <div class="review-card__rating" itemprop="reviewRating" itemscope itemtype="https://schema.org/Rating">
+                            <span itemprop="ratingValue">5</span>★★★★★
+                        </div>
+                        <p class="review-card__text" itemprop="reviewBody">"Понравилось всё – от организации до маршрута. Обязательно вернемся снова!"</p>
+                        <p class="review-card__author" itemprop="author" itemscope itemtype="https://schema.org/Person">
+                            <span itemprop="name">Елена, Казань</span>
+                        </p>
+                    </div>
+                </article>
+            </div>
+        </section>
+
+        <!-- Бронирование -->
+        <section class="card" id="booking" aria-labelledby="booking-title">
+            <div class="card__content">
+                <h2 class="card__title" id="booking-title">Забронируйте круиз</h2>
+                <p class="card__text">Заполните форму ниже или свяжитесь с нами по телефону<br><a href="tel:+71234567890" aria-label="Позвонить на номер +7 (123) 456-78-90">+7 (123) 456-78-90</a>.</p>
+                <form class="booking__form">
+                    <div class="form__group">
+                        <label for="name" class="form__label">Ваше имя</label>
+                        <input type="text" id="name" name="name" class="form__input" required aria-required="true" placeholder="Введите ваше имя" />
+                    </div>
+                    <div class="form__group">
+                        <label for="phone" class="form__label">Телефон</label>
+                        <input type="tel" id="phone" name="phone" class="form__input" required aria-required="true" placeholder="+7 (___) ___-__-__" />
+                    </div>
+                    <div class="form__group">
+                        <label for="route" class="form__label">Маршрут</label>
+                        <select id="route" name="route" class="form__input" required aria-required="true">
+                            <option value="" disabled selected>Выберите маршрут</option>
+                            <option value="moscow-spb">Москва – Санкт-Петербург</option>
+                            <option value="moscow-kazan">Москва – Казань</option>
+                            <option value="yaroslavl-kostroma">Ярославль – Кострома</option>
+                        </select>
+                    </div>
+                    <div class="form__group">
+                        <label for="date" class="form__label">Дата</label>
+                        <input type="date" id="date" name="date" class="form__input" required aria-required="true" />
+                    </div>
+                    <button type="submit" class="card__button">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+    <!-- Кнопка возврата наверх -->
+    <button class="scroll-top" aria-label="Вернуться наверх">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M12 4L12 20M12 4L6 10M12 4L18 10" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+    </button>
+
+    <!-- Футер -->
+    <footer class="footer" itemscope itemtype="https://schema.org/Organization">
+        <p class="footer__text">© 2025 <span itemprop="name">Речные круизы по Центральной России</span></p>
+        <div class="footer__socials" aria-label="Социальные сети">
+            <a href="#" class="footer__social-link" aria-label="Facebook"><img src="img/fbc.png" alt="Иконка Facebook" /></a>
+            <a href="#" class="footer__social-link" aria-label="Twitter"><img src="twitter-icon.png" alt="Иконка Twitter" /></a>
+            <a href="#" class="footer__social-link" aria-label="Instagram"><img src="instagram-icon.png" alt="Иконка Instagram" /></a>
+        </div>
+        <meta itemprop="telephone" content="+71234567890">
+    </footer>
+
+    <script src="{% static 'JS/script.js' %}"></script>
+</body>
+</html>

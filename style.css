@@ -1,0 +1,1009 @@
+/* Общие стили */
+html {
+    scroll-behavior: smooth; /* Плавная прокрутка */
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CSS-переменные */
+:root {
+    --primary-color: #1E90FF;
+    --secondary-color: #B0E0E6;
+    --background-dark: #1C2526;
+    --background-darker: #0F1A20;
+    --text-light: #87CEEB;
+}
+
+
+/* Мобильное меню */
+.header__nav {
+    transition: transform 0.3s ease-in-out;
+}
+
+.header__burger {
+    display: none;
+    cursor: pointer;
+    width: 30px;
+    height: 20px;
+    position: relative;
+}
+
+.header__burger span {
+    display: block;
+    width: 100%;
+    height: 3px;
+    background: var(--secondary-color);
+    position: absolute;
+    transition: all 0.3s ease;
+}
+
+.header__burger span:nth-child(1) { top: 0; }
+.header__burger span:nth-child(2) { top: 8px; }
+.header__burger span:nth-child(3) { top: 16px; }
+
+.header__burger.active span:nth-child(1) {
+    transform: rotate(45deg);
+    top: 8px;
+}
+
+.header__burger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.header__burger.active span:nth-child(3) {
+    transform: rotate(-45deg);
+    top: 8px;
+}
+
+@media (max-width: 768px) {
+    .header__burger {
+        display: block;
+    }
+
+    .header__nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        height: 100%;
+        width: 250px;
+        background: var(--background-darker);
+        flex-direction: column;
+        padding: 60px 20px;
+        transform: translateX(100%);
+    }
+
+    .header__nav.active {
+        transform: translateX(0);
+    }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 20px;
+    }
+
+    .header__nav-item {
+        margin-left: 0;
+    }
+
+    .header__nav-link {
+        font-size: 18px;
+    }
+}
+
+/* Параллакс для геройского блока */
+.hero {
+    background-attachment: fixed;
+    background-position: center;
+}
+
+/* Улучшение кнопок */
+.hero__button, .discover__video-button, .card__button {
+    position: relative;
+    overflow: hidden;
+}
+
+.hero__button::after, .discover__video-button::after, .card__button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.hero__button:hover::after, .discover__video-button:hover::after, .card__button:hover::after {
+    left: 100%;
+}
+
+/* Улучшение галереи */
+.discover__gallery figure {
+    position: relative;
+}
+
+.discover__gallery figcaption {
+    position: absolute;
+    bottom: 10px;
+    left: 0;
+    right: 0;
+    background: rgba(15, 26, 32, 0.7);
+    color: var(--text-light);
+    text-align: center;
+    padding: 5px;
+    font-size: 12px;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.discover__gallery figure:hover figcaption {
+    opacity: 1;
+}
+/* Учитываем высоту фиксированной шапки при прокрутке к якорям */
+section[id] {
+    scroll-margin-top: 80px; /* Высота шапки (20px padding сверху + 20px снизу + 40px высота логотипа) */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: linear-gradient(135deg, #1C2526, #0F1A20); /* Градиентный синий фон */
+    color: #fff;
+}
+
+/* Анимация появления */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Анимация для кнопок при наведении */
+@keyframes buttonScale {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+/* Шапка */
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background: rgba(15, 26, 32, 0.8);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    transition: background 0.3s ease; /* Плавное изменение фона при прокрутке */
+    animation: fadeIn 1s ease-out; /* Появление шапки */
+}
+
+.header.scrolled {
+    background: rgba(15, 26, 32, 1); /* Более непрозрачный фон при прокрутке */
+}
+
+.header__logo-img {
+    height: 40px;
+}
+
+.header__nav-list {
+    display: flex;
+    list-style: none;
+}
+
+.header__nav-item {
+    margin-left: 20px;
+}
+
+.header__nav-link {
+    color: #B0E0E6;
+    text-decoration: none;
+    font-size: 16px;
+    font-weight: 300;
+    transition: color 0.3s, transform 0.3s;
+}
+
+.header__nav-link:hover {
+    color: #1E90FF;
+    transform: translateY(-2px); /* Легкий подъем при наведении */
+}
+
+/* Геройский блок */
+/* Геройский блок */
+.hero {
+    position: relative;
+    height: 100vh;
+    background: url('img/hero-bg.jpg') no-repeat center center/cover;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.hero__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 26, 32, 0.7); /* Увеличиваем затемнение фона */
+}
+
+.hero__content {
+    position: relative;
+    z-index: 1;
+    background: rgba(255, 255, 255, 0.1); /* Полупрозрачная белая подложка */
+    backdrop-filter: blur(5px); /* Эффект размытия для подложки (если поддерживается браузером) */
+    padding: 20px 40px; /* Отступы для контента */
+    border-radius: 10px; /* Скругленные углы */
+    animation: fadeIn 1.5s ease-out;
+}
+
+.hero__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 60px;
+    font-weight: 800; /* Увеличиваем толщину шрифта */
+    color: #ffffff; /* Белый цвет для контраста */
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7); /* Тень для текста */
+    margin-bottom: 20px;
+}
+
+.hero__subtitle {
+    font-size: 24px;
+    font-weight: 400; /* Увеличиваем толщину шрифта */
+    color: #ffffff; /* Белый цвет */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для текста */
+    margin-bottom: 20px;
+}
+
+.hero__description {
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto 30px;
+    color: #ffffff; /* Белый цвет */
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Тень для текста */
+}
+
+.hero__button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #1E90FF; /* Оставляем синий фон кнопки */
+    color: #ffffff; /* Белый текст */
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Тень для кнопки */
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.hero__button:hover {
+    background: #187BCD;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.7); /* Усиливаем свечение при наведении */
+    animation: buttonScale 0.5s ease;
+}
+
+/* Популярные маршруты */
+.routes {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #1C2526;
+}
+
+.routes__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E90FF;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+}
+
+.routes__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.route-card {
+    position: relative;
+    width: 33.33%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    opacity: 0; /* Для анимации появления */
+    animation: fadeIn 1s ease-out forwards;
+    cursor: pointer;
+}
+
+.route-card:nth-child(1) { animation-delay: 0.2s; }
+.route-card:nth-child(2) { animation-delay: 0.4s; }
+.route-card:nth-child(3) { animation-delay: 0.6s; }
+
+.route-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.route-card:hover .route-card__image {
+    transform: scale(1.1); /* Увеличение изображения при наведении */
+}
+
+.route-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 26, 32, 0.5);
+    transition: background 0.3s;
+}
+
+.route-card:hover .route-card__overlay {
+    background: rgba(15, 26, 32, 0.3);
+}
+
+.route-card__content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.route-card:hover .route-card__content {
+    transform: translateY(-10px); /* Подъем текста при наведении */
+}
+
+.route-card__title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.route-card__description {
+    font-size: 16px;
+    font-weight: 300;
+    color: white;
+}
+
+/* Секция с видео и галереей */
+.discover {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #1C2526;
+}
+
+.discover__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 48px;
+    font-weight: 700;
+    color: #1E90FF;
+    margin-bottom: 30px;
+    animation: fadeIn 1s ease-out;
+}
+
+.discover__video-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background: #1E90FF;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    border-radius: 5px;
+    margin-bottom: 20px;
+    transition: background 0.3s, box-shadow 0.3s;
+}
+
+.discover__video-button:hover {
+    background: #187BCD;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+    animation: buttonScale 0.5s ease;
+}
+
+.discover__description {
+    font-size: 16px;
+    font-weight: 300;
+    max-width: 600px;
+    margin: 0 auto 40px;
+    color: #87CEEB;
+}
+
+.discover__gallery {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+}
+
+.discover__gallery-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+    border: 2px solid #4682B4;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+}
+
+.discover__gallery-image:nth-child(1) { animation-delay: 0.2s; }
+.discover__gallery-image:nth-child(2) { animation-delay: 0.4s; }
+.discover__gallery-image:nth-child(3) { animation-delay: 0.6s; }
+.discover__gallery-image:nth-child(4) { animation-delay: 0.8s; }
+
+.discover__gallery-image:hover {
+    transform: scale(1.05); /* Увеличение при наведении */
+    border-color: #1E90FF; /* Яркий синий при наведении */
+}
+
+
+
+/* Наш флот */
+.fleet {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #1C2526;
+}
+
+.fleet__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E90FF;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+}
+
+.fleet__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.fleet-card {
+    position: relative;
+    width: 33.33%;
+    height: 300px;
+    overflow: hidden;
+    border-radius: 10px;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    cursor: pointer;
+}
+
+.fleet-card:nth-child(1) { animation-delay: 0.2s; }
+.fleet-card:nth-child(2) { animation-delay: 0.4s; }
+.fleet-card:nth-child(3) { animation-delay: 0.6s; }
+
+.fleet-card__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.fleet-card:hover .fleet-card__image {
+    transform: scale(1.1);
+}
+
+.fleet-card__overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 26, 32, 0.5);
+    transition: background 0.3s;
+}
+
+.fleet-card:hover .fleet-card__overlay {
+    background: rgba(15, 26, 32, 0.3);
+}
+
+.fleet-card__content {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    color: #fff;
+    transition: transform 0.3s;
+}
+
+.fleet-card:hover .fleet-card__content {
+    transform: translateY(-10px);
+}
+
+.fleet-card__title {
+    font-size: 24px;
+    font-weight: 600;
+}
+
+.fleet-card__description {
+    font-size: 16px;
+    font-weight: 300;
+    color: #87CEEB;
+}
+
+/* Отзывы */
+.reviews {
+    padding: 80px 50px;
+    text-align: center;
+    background-color: #1C2526;
+}
+
+.reviews__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E90FF;
+    margin-bottom: 50px;
+    animation: fadeIn 1s ease-out;
+}
+
+.reviews__list {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.review-card {
+    width: 33.33%;
+    background: rgba(15, 26, 32, 0.9); /* Чуть более темный фон */
+    padding: 30px;
+    border-radius: 15px;
+    border: 1px solid rgba(70, 130, 180, 0.3); /* Тонкая рамка */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3); /* Мягкая тень */
+    position: relative;
+    opacity: 0;
+    animation: fadeIn 1s ease-out forwards;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.review-card:hover {
+    transform: translateY(-5px); /* Подъем при наведении */
+    box-shadow: 0 6px 20px rgba(30, 144, 255, 0.3); /* Усиленная тень с синим оттенком */
+}
+
+.review-card:nth-child(1) { animation-delay: 0.2s; }
+.review-card:nth-child(2) { animation-delay: 0.4s; }
+.review-card:nth-child(3) { animation-delay: 0.6s; }
+
+.review-card__content {
+    text-align: left;
+    position: relative;
+    padding-top: 60px; /* Место для аватара и рейтинга */
+}
+
+.review-card__avatar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #4682B4; /* Цвет аватара */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #fff;
+}
+
+.review-card__rating {
+    position: absolute;
+    top: 20px;
+    right: 0;
+    color: #FFD700; /* Золотой цвет для звезд */
+    font-size: 16px;
+}
+
+.review-card__text {
+    font-size: 16px;
+    font-weight: 300;
+    color: #B0E0E6;
+    margin-bottom: 15px;
+    font-style: italic; /* Курсив для текста отзыва */
+    line-height: 1.5; /* Увеличиваем межстрочный интервал */
+}
+
+.review-card__author {
+    font-size: 14px;
+    font-weight: 600;
+    color: #87CEEB;
+    text-align: right; /* Автор справа */
+}
+
+/* Адаптивность для отзывов */
+@media (max-width: 768px) {
+    .reviews__list {
+        flex-direction: column;
+    }
+
+    .review-card {
+        width: 100%;
+    }
+}
+
+/* Кнопка возврата наверх */
+/* Стили для кнопки возврата наверх */
+.scroll-top {
+    position: fixed;
+    bottom: 30px;
+    right: 30px;
+    display: none; /* Скрыта по умолчанию */
+    background: #1E90FF;
+    border: none;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.5);
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 1000; /* Убедитесь, что кнопка поверх других элементов */
+}
+
+.scroll-top.visible {
+    display: block; /* Появляется при прокрутке */
+    opacity: 1;
+}
+
+.scroll-top:hover {
+    background: #187BCD;
+    transform: scale(1.1);
+}
+
+.scroll-top svg {
+    position: absolute;
+    top: 50%;
+    left: 5;
+    transform: translate(-50%, -50%);
+}
+
+.scroll-top.visible {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.scroll-top:hover {
+    background: #187BCD;
+    transform: scale(1.1);
+}
+
+.scroll-top svg {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* Адаптивность для новых секций */
+@media (max-width: 768px) {
+    .fleet__list {
+        flex-direction: column;
+    }
+
+    .fleet-card {
+        width: 100%;
+    }
+
+    .reviews__list {
+        flex-direction: column;
+    }
+
+    .review-card {
+        width: 100%;
+    }
+
+    .scroll-top {
+        width: 40px;
+        height: 40px;
+        bottom: 20px;
+        right: 20px;
+    }
+}
+
+/* Бронирование */
+.card {
+    padding: 80px 50px;
+    text-align: center;
+    background: linear-gradient(135deg, #1C2526, #0F1A20); /* Градиентный фон */
+    position: relative;
+    overflow: hidden;
+}
+
+.card::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(30, 144, 255, 0.1) 0%, transparent 70%);
+    opacity: 0.3;
+    animation: rotateGradient 15s linear infinite;
+}
+
+@keyframes rotateGradient {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.card__content {
+    position: relative;
+    z-index: 1;
+    background: rgba(15, 26, 32, 0.9);
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.card__title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 36px;
+    font-weight: 700;
+    color: #1E90FF;
+    margin-bottom: 20px;
+    animation: fadeIn 1s ease-out;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.card__text {
+    font-size: 16px;
+    font-weight: 300;
+    margin-bottom: 30px;
+    color: #B0E0E6;
+}
+
+.card__text a {
+    color: #1E90FF;
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.card__text a:hover {
+    color: #87CEEB;
+}
+
+/* Стили для формы бронирования */
+.booking__form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form__label {
+    font-size: 14px;
+    font-weight: 400;
+    color: #B0E0E6;
+    margin-bottom: 8px;
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+
+.form__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form__icon {
+    position: absolute;
+    left: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    fill: #4682B4;
+    transition: fill 0.3s;
+}
+
+.form__input {
+    padding: 12px 12px 12px 40px; /* Учитываем место под иконку */
+    border: 1px solid #4682B4;
+    border-radius: 8px;
+    background: #0F1A20;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s, box-shadow 0.3s;
+    width: 100%;
+}
+
+.form__input:focus {
+    border-color: #1E90FF;
+    outline: none;
+    box-shadow: 0 0 8px rgba(30, 144, 255, 0.3);
+}
+
+.form__input:focus + .form__icon,
+.form__input:hover + .form__icon {
+    fill: #1E90FF;
+}
+
+.form__input::placeholder {
+    color: #87CEEB;
+    opacity: 0.7;
+}
+
+.card__button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 15px 30px;
+    background: #1E90FF;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background 0.3s, box-shadow 0.3s, transform 0.3s;
+    position: relative;
+    overflow: hidden;
+}
+
+.card__button:hover {
+    background: #187BCD;
+    box-shadow: 0 0 15px rgba(30, 144, 255, 0.5);
+    transform: translateY(-2px);
+    animation: buttonScale 0.5s ease;
+}
+
+.card__button::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: 0.5s;
+}
+
+.card__button:hover::before {
+    left: 100%;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .card {
+        padding: 40px 20px;
+    }
+
+    .card__content {
+        padding: 20px;
+    }
+
+    .card__title {
+        font-size: 28px;
+    }
+}
+
+/* Футер */
+.footer {
+    padding: 30px 50px;
+    text-align: center;
+    background: #0F1A20;
+    animation: fadeIn 1s ease-out;
+}
+
+.footer__text {
+    font-size: 14px;
+    font-weight: 300;
+    margin-bottom: 20px;
+    color: #B0E0E6;
+}
+
+.footer__socials {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+
+.footer__social-link img {
+    width: 24px;
+    height: 24px;
+    filter: brightness(0) invert(1);
+    transition: transform 0.3s;
+}
+
+.footer__social-link img:hover {
+    transform: rotate(360deg); /* Вращение иконки при наведении */
+    filter: brightness(0) invert(1) sepia(1) hue-rotate(190deg) saturate(5);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        padding: 20px;
+    }
+
+    .header__nav-list {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .hero__title {
+        font-size: 40px;
+    }
+
+    .routes__list {
+        flex-direction: column;
+    }
+
+    .route-card {
+        width: 100%;
+    }
+
+    .discover__gallery {
+        flex-wrap: wrap;
+    }
+}
+
+
+
+
+
+/* Стили для формы бронирования */
+.booking__form {
+    max-width: 500px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.form__group {
+    display: flex;
+    flex-direction: column;
+    text-align: left;
+}
+
+.form__label {
+    font-size: 14px;
+    font-weight: 300;
+    color: #B0E0E6;
+    margin-bottom: 5px;
+}
+
+.form__input {
+    padding: 10px;
+    border: 1px solid #4682B4;
+    border-radius: 5px;
+    background: #0F1A20;
+    color: #fff;
+    font-size: 16px;
+    transition: border-color 0.3s;
+}
+
+.form__input:focus {
+    border-color: #1E90FF;
+    outline: none;
+}
+
